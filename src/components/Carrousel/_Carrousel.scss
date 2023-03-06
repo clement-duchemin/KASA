@@ -1,0 +1,92 @@
+
+#carrousel-container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 255px;
+    margin: 2% 0;
+    overflow: hidden;
+
+    @media screen and (min-width: $breakpoint-desktop) {
+        height: 415px;
+    }
+}
+
+.slider {
+    position: absolute;
+    @include WH-full;
+    @include small-radius;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    transition: opacity ease-in-out 0.6s;
+
+    @media screen and (min-width: $breakpoint-desktop) {
+        @include big-radius;
+    }
+
+    & img {
+        @include WH-full;
+        @include small-radius;
+        position: absolute;
+        left: 0%;
+        right: 0%;
+        top: 0%;
+        bottom: 0%;
+        mix-blend-mode: normal;
+        object-fit: cover;
+
+        @media screen and (min-width: $breakpoint-desktop) {
+            @include big-radius;
+        }
+    }
+
+    &__number {
+        display: none;
+
+        @media screen and (min-width: $breakpoint-desktop) {
+            display: block;
+            position: absolute;
+            @include font(18px, 500);
+            color: $tertiary-color;
+            left: 48%;
+            top: 86%;
+        }
+    }
+}
+
+
+
+.rightArrow {
+    position: absolute;
+    z-index: 10;
+    width: 12px;
+    right: 2%;
+    top: 47%;
+    height: 20px;
+    cursor: pointer;
+
+    @media screen and (min-width: $breakpoint-desktop) {
+        width: 47px;
+        height: 79px;
+        top: 42%;
+    }
+    
+}
+
+.leftArrow {
+    position: absolute;
+    z-index: 10;
+    width: 12px;
+    left: 2%;
+    top: 47%;
+    height: 20px;
+    cursor: pointer;
+
+    @media screen and (min-width: $breakpoint-desktop) {
+        width: 47px;
+        height: 79px;
+        top: 42%;
+    }
+}

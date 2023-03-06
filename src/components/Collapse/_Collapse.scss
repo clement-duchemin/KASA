@@ -1,0 +1,95 @@
+.collapse {
+	width: 100%;
+	margin: 20px 0;
+
+	@media screen and (min-width: $breakpoint-desktop) {
+		margin: 31px auto 0;
+	}
+
+	&__visible {
+		background: $primary-color;
+		color: $tertiary-color;
+		cursor: pointer;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 30px;
+		padding: 7px 15px;
+		border-radius: 5px;
+		width: 100%;
+
+		@media screen and (min-width: $breakpoint-desktop) {
+			height: 47px;
+		}
+
+		h2 {
+			@include font(13px, 500);
+
+			@media screen and (min-width: $breakpoint-desktop) {
+				@include font(24px, 500);
+			}
+		}
+	}
+
+	&__toggle {
+		opacity: 0;
+		color: $primary-color;
+		background: $secondary-color;
+		border-radius: 5px;
+		transition: opacity 0.4s ease-in-out, height 0.4s 0.4s ease-in-out;
+
+		p {
+			margin: 0;
+			padding: 22px 15px;
+			pointer-events: none;
+			@include font(12px, 400);
+
+			@media screen and (min-width: $breakpoint-desktop) {
+				@include font(24px, 400);
+			}
+		}
+	}
+}
+
+.animated {
+	opacity: 1;
+	transition: height 0.4s ease-in-out, opacity 0.4s 0.4s ease-in-out;
+}
+
+.chevron {
+	width: 9px;
+	transform: rotate(0deg);
+	transition: 0.4s 0.4s ease-in-out;
+
+	@media screen and (min-width: $breakpoint-desktop) {
+		width: 15px;
+	}
+}
+
+.rotated {
+	transform: rotate(180deg);
+	transition: 0.4s ease-in-out;
+}
+
+.about-style {
+	width: 100%;
+	@include flex-column;
+
+	@media screen and (min-width: $breakpoint-desktop) {
+		width: 87.5%;
+	}
+}
+
+.collapse-fiche-container {
+	@include flex-column;
+	width: 100%;
+
+	@media screen and (min-width: $breakpoint-desktop) {
+		flex-direction: row;
+		gap: 6%;
+	}
+}
+
+.equipList {
+	list-style-type: none;
+}
