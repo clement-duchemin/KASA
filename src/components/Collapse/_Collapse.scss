@@ -1,7 +1,18 @@
+
+.collapse-fiche-container {
+	@include flex-column;
+	width: 100%;
+
+	@media screen and (min-width: $breakpoint-desktop) {
+		flex-direction: row;
+		gap: 6%;
+	}
+}
+
 .collapse {
 	width: 100%;
 	margin: 20px 0;
-
+	
 	@media screen and (min-width: $breakpoint-desktop) {
 		margin: 31px auto 0;
 	}
@@ -37,7 +48,7 @@
 		background: $secondary-color;
 		border-radius: 5px;
 		transition: opacity 0.4s ease-in-out, height 0.4s 0.4s ease-in-out;
-
+		
 		p {
 			margin: 0;
 			padding: 22px 15px;
@@ -69,25 +80,6 @@
 .rotated {
 	transform: rotate(180deg);
 	transition: 0.4s ease-in-out;
-}
-
-.about-style {
-	width: 100%;
-	@include flex-column;
-
-	@media screen and (min-width: $breakpoint-desktop) {
-		width: 87.5%;
-	}
-}
-
-.collapse-fiche-container {
-	@include flex-column;
-	width: 100%;
-
-	@media screen and (min-width: $breakpoint-desktop) {
-		flex-direction: row;
-		gap: 6%;
-	}
 }
 
 .equipList {
