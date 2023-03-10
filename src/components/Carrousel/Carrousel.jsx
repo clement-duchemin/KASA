@@ -7,10 +7,10 @@ function Carrousel({ slides }) {
     const length = slides.length;
 
     const nextSlide = () => {
-        setCurrent(current === length -1 ? 0 : current +1)
+        setCurrent(current === length -1 ? 0 : current +1) // On repart au premier slide quand on arrive au dernier
     }
     const previousSlide = () => {
-        setCurrent(current === 0 ? length -1 : current -1)
+        setCurrent(current === 0 ? length -1 : current -1) // On repart au dernier slide quand on est au premier
     }
 
   return (

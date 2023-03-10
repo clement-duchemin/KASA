@@ -3,12 +3,12 @@ import Banner from "../../components/Banner/Banner";
 import Card from "../../components/Cards/Card";
 import { Link } from "react-router-dom";
 import axios from "axios";
-//import datas from '../../data/data'
+
 
 function Home() {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState([]);// Je crée un useState avec un array. La variable data contiendra les données du fichier logement.json.
 
-    useEffect(() => {
+    useEffect(() => { // Dans ce useEffect je fais un axios.get pour récupérer les données du fichier logement.json.
         axios.get("https://raw.githubusercontent.com/clement-duchemin/kasa/master/public/logements.json")
         .then((res) => setData(res.data));
     }, []);
@@ -32,31 +32,7 @@ function Home() {
 export default Home
 
 
-// function Home() {
-    
 
-    
-
-//     return (
-//         <>
-//             <Banner />
-//             <div className="cards-container">
-//             {datas.map(data => {
-//                 return (
-//                     <Card
-//                         key={data.id}
-//                         id={data.id}
-//                         title={data.title}
-//                         cover={data.cover}
-//                     />
-//                 )
-//             })}
-//             </div>
-//         </>
-//     );
-// }
-
-// export default Home
 
 
 

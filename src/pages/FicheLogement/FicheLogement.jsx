@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect} from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate  } from "react-router-dom";
 import Carrousel from "../../components/Carrousel/Carrousel";
 import Tag from "../../components/Tag/Tag";
 import Host from "../../components/Host/Host";
@@ -10,22 +10,22 @@ import Collapse from "../../components/Collapse/Collapse";
 
 
 function FicheLogement() {
-    const params = useParams();
-	const navigate = useNavigate();
+    const params = useParams(); // La méthode useParams permet de manipuler les paramètres de requête (id) des url du fichier logements.json
+	  const navigate = useNavigate(); // Hook qui permet de rediriger vers la page 404 en cas d'erreur d'url.
 
-	const [currentFlat, setCurrentFlat] = useState();
-	useEffect(() => {
+	const [currentFlat, setCurrentFlat] = useState(); // Je déclare la variable state currentFlat
+	useEffect(() => {  // Je passe la fonction getData au hook useEffect
 		const getData = async () => {
 			const res = await axios.get("https://raw.githubusercontent.com/clement-duchemin/kasa/master/public/logements.json"); 
-			const flat = res.data.find(({ id }) => id === params.id);
-			res.data.map(() => setCurrentFlat(flat));
-			if (flat === undefined) {
+			const flat = res.data.find(({ id }) => id === params.id); // La méthode find retourne le premier id trouvé qui correspond à un id extrait avec useParams.
+			res.data.map(() => setCurrentFlat(flat)); // La logique de recherche d'id est passée dans la variable flat qui est passée à la fonction setCurrentFlat pour être intégré au state.
+			if (flat === undefined) {   // La méthode map avec une fonction callback sur l'élément setCurrentFlat me permet de manipuler les données de logements.json intégrées au state currentFlat.
 				navigate("/404", { state: { message: "Can't get data" } }); 
 			}
 		};
 		getData();
        
-    }, [navigate, params.id]);
+    }, [params, navigate]);
 
     const slidePics = currentFlat && currentFlat.pictures;
     const tags = currentFlat && currentFlat.tags;
