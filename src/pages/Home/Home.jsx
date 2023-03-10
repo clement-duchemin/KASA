@@ -9,7 +9,7 @@ function Home() {
     const [data, setData] = useState([]);// Je crée un useState avec un array. La variable data contiendra les données du fichier logement.json.
 
     useEffect(() => { // Dans ce useEffect je fais un axios.get pour récupérer les données du fichier logement.json.
-        axios.get("https://raw.githubusercontent.com/clement-duchemin/kasa/master/public/logements.json")
+        axios.get("/logements.json")
         .then((res) => setData(res.data));
     }, []);
 
